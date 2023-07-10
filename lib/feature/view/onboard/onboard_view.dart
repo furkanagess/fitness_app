@@ -1,3 +1,5 @@
+// ignore_for_file: inference_failure_on_instance_creation
+
 import 'package:fitness_app/feature/view/login/login_view.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
