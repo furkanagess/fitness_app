@@ -1,3 +1,4 @@
+import 'package:fitness_app/feature/view/login/login_view.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
@@ -53,7 +54,11 @@ class OnboardView extends StatelessWidget {
                     backgroundColor: context.theme.colorScheme.primary,
                     shape: const StadiumBorder(),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const LoginView(),
+                    ));
+                  },
                   child: Center(
                     child: Text(
                       AppStrings.start,
