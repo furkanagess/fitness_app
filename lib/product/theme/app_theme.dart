@@ -14,8 +14,8 @@ class AppTheme {
       );
   ColorScheme get _colorScheme => const ColorScheme(
         brightness: Brightness.light,
-        primary: Color(0xffE54231), // used
-        onPrimary: Colors.white,
+        primary: Color(0xFFF12824), // used
+        onPrimary: Color(0xFFDFDEDE),
         secondary: Colors.white, // used
         onSecondary: Colors.white,
         error: Colors.red,

@@ -7,4 +7,5 @@ class SVGConstants {
   String toSVG(String name) => "assets/svg/$name.svg";
 
   String get training => toSVG("training");
+  String get workout => toSVG("workout");
 }
