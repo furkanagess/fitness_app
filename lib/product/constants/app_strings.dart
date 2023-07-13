@@ -14,4 +14,11 @@ class AppStrings {
   static const String dontHaveAccount = 'Dont have an account?';
   static const String signUp = 'Sign up';
   static const String or = 'or';
+  static const String home = 'Home';
+  static const String saved = 'Saved';
+  static const String profile = 'Profile';
+  static const String recom = 'Todays Recommendations';
+  static const String workout = 'Morning Workout';
+  static const String time = '30 minutes';
+  static const String runner = 'Runners Yoga';
 }
