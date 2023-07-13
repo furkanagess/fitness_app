@@ -1,6 +1,6 @@
 // ignore_for_file: inference_failure_on_instance_creation
 
-import 'package:fitness_app/feature/view/login/login_view.dart';
+import 'package:fitness_app/feature/main_page.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
@@ -58,7 +58,7 @@ class OnboardView extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const LoginView(),
+                      builder: (context) => const MainPage(),
                     ));
                   },
                   child: Center(
