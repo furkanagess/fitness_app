@@ -1,3 +1,6 @@
+// ignore_for_file: inference_failure_on_instance_creation
+
+import 'package:fitness_app/feature/view/home/home_view.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
@@ -25,9 +28,6 @@ class LoginView extends StatelessWidget {
             const Expanded(
               flex: 3,
               child: HeaderImage(),
-            ),
-            SizedBox(
-              height: context.dynamicHeight(0.05),
             ),
             const Expanded(
               flex: 3,
@@ -99,7 +99,13 @@ class ButtonArea extends StatelessWidget {
       children: [
         CustomButton(
           title: AppStrings.login,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const HomeView(),
+              ),
+            );
+          },
         ),
         CustomDivider(
           text: AppStrings.or,
@@ -120,6 +126,9 @@ class TextfieldArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: context.dynamicHeight(0.05),
+        ),
         Row(
           children: [
             Text(
@@ -161,7 +170,6 @@ class HeaderImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      height: context.dynamicHeight(0.3),
       decoration: BoxDecoration(
         color: context.theme.colorScheme.onPrimary,
         borderRadius: BorderRadius.circular(10),
