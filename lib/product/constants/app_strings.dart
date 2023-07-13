@@ -21,4 +21,13 @@ class AppStrings {
   static const String workout = 'Morning Workout';
   static const String time = '30 minutes';
   static const String runner = 'Runners Yoga';
+
+  // Home
+  static const String discover = 'Discover New Workouts';
+  static const String searchForWorkout = 'Search for a workout';
+  static const String all = 'All';
+  static const String strength = 'Strength';
+  static const String cardio = 'Cardio';
+  static const String flexibility = 'Flexibility';
+  static const String fullBody = 'Full body workout';
 }
