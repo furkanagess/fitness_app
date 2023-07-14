@@ -7,9 +7,14 @@ class AppTheme {
       appBarTheme: _appBarTheme,
       colorScheme: _colorScheme,
       bottomNavigationBarTheme: _bottomNavigationBarTheme,
+      iconTheme: _iconThemeData,
     );
   }
 
+  IconThemeData get _iconThemeData => IconThemeData(
+        size: 30,
+        color: _colorScheme.primary,
+      );
   BottomNavigationBarThemeData get _bottomNavigationBarTheme => BottomNavigationBarThemeData(
         backgroundColor: _colorScheme.onSecondary,
         selectedItemColor: _colorScheme.primary,
@@ -24,9 +29,17 @@ class AppTheme {
         type: BottomNavigationBarType.fixed,
       );
 
-  AppBarTheme get _appBarTheme => const AppBarTheme(
+  AppBarTheme get _appBarTheme => AppBarTheme(
         centerTitle: true,
         elevation: 0,
+        titleTextStyle: TextStyle(
+          color: _colorScheme.primary,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+        iconTheme: IconThemeData(
+          color: _colorScheme.primary,
+        ),
       );
   ColorScheme get _colorScheme => const ColorScheme(
         brightness: Brightness.light,
