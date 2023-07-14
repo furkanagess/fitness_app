@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, parameter_assignments
 
+import 'package:fitness_app/feature/view/playlist/playlist_view.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:fitness_app/product/widgets/custom_textfield.dart';
@@ -121,17 +122,27 @@ class WorkoutsGridView extends StatelessWidget {
       itemBuilder: (context, index) {
         return Column(
           children: [
-            Card(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              child: Image.network(
-                'https://picsum.photos/200/300',
-                fit: BoxFit.fill,
-                height: context.dynamicHeight(0.25),
-                width: double.maxFinite,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PlaylistView(),
+                  ),
+                );
+              },
+              child: Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Image.network(
+                  'https://picsum.photos/200/300',
+                  fit: BoxFit.fill,
+                  height: context.dynamicHeight(0.25),
+                  width: double.maxFinite,
+                ),
               ),
             ),
             Padding(
