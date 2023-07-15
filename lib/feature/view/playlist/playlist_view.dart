@@ -1,3 +1,4 @@
+import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
@@ -9,110 +10,146 @@ class PlaylistView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Runner's Yoga",
-        ),
-        backgroundColor: context.theme.colorScheme.secondary,
-        elevation: 0,
-      ),
+      appBar: buildAppbar(context),
       body: Padding(
         padding: context.paddingNormalHorizontal,
-        child: Column(
+        child: const Column(
           children: [
             Expanded(
               flex: 4,
-              child: SizedBox(
-                width: context.dynamicWidth(0.8),
-                child: SvgPicture.asset(
-                  SVGConstants.instance.training,
+              child: VideoPlayer(),
+            ),
+            Expanded(
+              child: HeaderAndSlider(),
+            ),
+            Expanded(
+              child: VideoControllerRow(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  AppBar buildAppbar(BuildContext context) {
+    return AppBar(
+      title: const Text(
+        AppStrings.header,
+      ),
+      backgroundColor: context.theme.colorScheme.secondary,
+      elevation: 0,
+    );
+  }
+}
+
+class VideoControllerRow extends StatelessWidget {
+  const VideoControllerRow({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.shuffle,
+          ),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.skip_previous,
+          ),
+        ),
+        FloatingActionButton(
+          backgroundColor: context.theme.colorScheme.primary,
+          elevation: 0,
+          onPressed: () {},
+          child: const Icon(Icons.pause),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.skip_next,
+          ),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.equalizer,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class HeaderAndSlider extends StatelessWidget {
+  const HeaderAndSlider({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Padding(
+              padding: context.paddingNormalHorizontal,
+              child: Text(
+                AppStrings.workoutPlaylist,
+                style: context.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
-              ),
-            ),
-            Expanded(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: context.paddingNormalHorizontal,
-                        child: Text(
-                          "Workout Playlist",
-                          style: context.textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Slider(
-                    min: 0,
-                    max: 29,
-                    value: 3,
-                    onChanged: (value) {},
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 24, right: 24),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "2:31",
-                          style: context.textTheme.bodySmall?.copyWith(
-                            color: Colors.red,
-                          ),
-                        ),
-                        Text(
-                          "-21:30",
-                          style: context.textTheme.bodySmall?.copyWith(
-                            color: Colors.red,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.shuffle,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.skip_previous,
-                    ),
-                  ),
-                  FloatingActionButton(
-                    backgroundColor: context.theme.colorScheme.primary,
-                    child: const Icon(Icons.pause),
-                    elevation: 0,
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.skip_next,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.equalizer,
-                    ),
-                  ),
-                ],
               ),
             ),
           ],
         ),
+        Slider(
+          max: 29,
+          value: 3,
+          onChanged: (value) {},
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 24, right: 24),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppStrings.timeCount,
+                style: context.textTheme.bodySmall?.copyWith(
+                  color: Colors.red,
+                ),
+              ),
+              Text(
+                AppStrings.timeCount2,
+                style: context.textTheme.bodySmall?.copyWith(
+                  color: Colors.red,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class VideoPlayer extends StatelessWidget {
+  const VideoPlayer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: context.dynamicWidth(0.8),
+      child: SvgPicture.asset(
+        SVGConstants.instance.training,
       ),
     );
   }

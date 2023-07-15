@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, parameter_assignments
+// ignore_for_file: non_constant_identifier_names, parameter_assignments, inference_failure_on_instance_creation
 
 import 'package:fitness_app/feature/view/playlist/playlist_view.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
@@ -127,7 +127,7 @@ class WorkoutsGridView extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PlaylistView(),
+                    builder: (context) => const PlaylistView(),
                   ),
                 );
               },
