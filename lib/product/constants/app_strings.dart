@@ -30,4 +30,10 @@ class AppStrings {
   static const String cardio = 'Cardio';
   static const String flexibility = 'Flexibility';
   static const String fullBody = 'Full body workout';
+
+  // Playlist
+  static const String header = 'Runners Yoga';
+  static const String workoutPlaylist = 'Workout Playlist';
+  static const String timeCount = '2:30';
+  static const String timeCount2 = '-21:23';
 }
