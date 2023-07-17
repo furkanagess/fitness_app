@@ -36,4 +36,20 @@ class AppStrings {
   static const String workoutPlaylist = 'Workout Playlist';
   static const String timeCount = '2:30';
   static const String timeCount2 = '-21:23';
+
+  // Profile
+
+  static const String followers = 'Followers';
+  static const String following = 'Following';
+  static const String numbers = '34';
+  static const String myStatistics = 'My Statistics';
+  static const String achievements = 'My Achievements';
+  static const String roundTotal = 'Rounded Total';
+  static const String calories = 'Calories Burnt';
+  static const String stack = 'Stack';
+  static const String staticticsNumber = '200';
+  static const String workoutTracker = 'Workout Tracker';
+  static const String workoutDescp = 'Workout out the 100 milestones';
+  static const String progress = 'Progress';
+  static const String progressNumber = '90 / 100';
 }
