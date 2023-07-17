@@ -1,4 +1,5 @@
 import 'package:fitness_app/feature/view/home/home_view.dart';
+import 'package:fitness_app/feature/view/profile/profile_view.dart';
 import 'package:fitness_app/feature/view/saved/saved_view.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
 
@@ -16,6 +17,7 @@ class _MainPageState extends State<MainPage> {
   final pages = [
     const HomeView(),
     const SavedView(),
+    const ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

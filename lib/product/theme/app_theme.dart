@@ -32,6 +32,7 @@ class AppTheme {
   AppBarTheme get _appBarTheme => AppBarTheme(
         centerTitle: true,
         elevation: 0,
+        backgroundColor: _colorScheme.onSecondary,
         titleTextStyle: TextStyle(
           color: _colorScheme.primary,
           fontSize: 20,
@@ -46,11 +47,11 @@ class AppTheme {
         primary: Color(0xFFF12824), // used
         onPrimary: Color(0xFFFFFFFF), // used
         secondary: Colors.white, // used
-        onSecondary: Colors.white,
+        onSecondary: Colors.white, // used
         error: Colors.red,
         onError: Colors.red,
         background: Colors.white,
-        onBackground: Colors.white,
+        onBackground: Color(0xFFE9E9E9),
         surface: Colors.black, // used
         onSurface: Colors.white,
       );
