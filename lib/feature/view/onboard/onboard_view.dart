@@ -1,7 +1,5 @@
-// ignore_for_file: inference_failure_on_instance_creation
-
-import 'package:fitness_app/feature/main_page.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
+import 'package:fitness_app/product/constants/navigation_constants.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
@@ -57,9 +55,7 @@ class OnboardView extends StatelessWidget {
                     shape: const StadiumBorder(),
                   ),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const MainPage(),
-                    ));
+                    Navigator.pushNamed(context, NavigationConstants.login);
                   },
                   child: Center(
                     child: Text(

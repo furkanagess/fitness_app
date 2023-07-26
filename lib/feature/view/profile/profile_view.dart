@@ -1,4 +1,5 @@
 import 'package:fitness_app/product/constants/app_strings.dart';
+import 'package:fitness_app/product/constants/jfif_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -262,13 +263,13 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CircleAvatar(
-          radius: 45,
-          backgroundImage: NetworkImage(
-            'https://picsum.photos/200/300',
+          radius: 50,
+          backgroundImage: AssetImage(
+            JFIFConstants.instance.profile,
           ),
         ),
       ],

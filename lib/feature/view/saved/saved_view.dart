@@ -1,6 +1,5 @@
-// ignore_for_file: strict_raw_type, prefer_final_locals, omit_local_variable_types, no_adjacent_strings_in_list, missing_whitespace_between_adjacent_strings
-
 import 'package:fitness_app/product/constants/app_strings.dart';
+import 'package:fitness_app/product/constants/jfif_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -100,8 +99,8 @@ class SavedWorkouts extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Image.network(
-            'https://picsum.photos/200/300',
+          child: Image.asset(
+            JFIFConstants.instance.workout2,
             width: context.dynamicWidth(0.35),
             fit: BoxFit.fill,
             height: context.dynamicHeight(0.13),
@@ -144,8 +143,8 @@ class WorkoutPlan extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Image.network(
-            'https://picsum.photos/200/300',
+          child: Image.asset(
+            JFIFConstants.instance.workout,
             fit: BoxFit.fill,
             height: context.dynamicHeight(0.25),
             width: double.maxFinite,
@@ -172,65 +171,6 @@ class WorkoutPlan extends StatelessWidget {
           height: context.dynamicHeight(0.03),
         ),
       ],
-    );
-  }
-}
-
-class CustomSearchDelegate extends SearchDelegate {
-  @override
-  Widget? buildLeading(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.arrow_back),
-      onPressed: () {
-        close(context, null);
-      },
-    );
-  }
-
-  @override
-  List<Widget>? buildActions(BuildContext context) {
-    return [
-      IconButton(
-        icon: const Icon(Icons.close),
-        onPressed: () {
-          if (query.isEmpty) {
-            close(context, null);
-          } else {
-            query = '';
-          }
-        },
-      ),
-    ];
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    return Center(
-      child: Text(query),
-    );
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    List<String> suggestions = [
-      'Fitness'
-          'Body Building'
-          'Workout'
-          'Training'
-    ];
-
-    return ListView.builder(
-      itemCount: suggestions.length,
-      itemBuilder: (context, index) {
-        final suggestion = suggestions[index];
-        return ListTile(
-          title: Text(suggestion),
-          onTap: () {
-            query = suggestion;
-            showResults(context);
-          },
-        );
-      },
     );
   }
 }

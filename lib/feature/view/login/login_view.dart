@@ -1,7 +1,5 @@
-// ignore_for_file: inference_failure_on_instance_creation
-
-import 'package:fitness_app/feature/view/saved/saved_view.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
+import 'package:fitness_app/product/constants/navigation_constants.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:fitness_app/product/widgets/custom_button.dart';
@@ -63,6 +61,7 @@ class SocialMediaAndSignUp extends StatelessWidget {
               icon: const Icon(
                 size: 30,
                 Icons.facebook,
+                color: Colors.blue,
               ),
             ),
             SizedBox(
@@ -73,6 +72,7 @@ class SocialMediaAndSignUp extends StatelessWidget {
               icon: const Icon(
                 size: 30,
                 Icons.facebook,
+                color: Colors.blue,
               ),
             ),
           ],
@@ -100,11 +100,7 @@ class ButtonArea extends StatelessWidget {
         CustomButton(
           title: AppStrings.login,
           onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const SavedView(),
-              ),
-            );
+            Navigator.pushNamed(context, NavigationConstants.main);
           },
         ),
         CustomDivider(
@@ -190,7 +186,7 @@ class HeaderImage extends StatelessWidget {
               ],
             ),
             SvgPicture.asset(
-              height: context.dynamicHeight(0.22),
+              height: context.dynamicHeight(0.25),
               SVGConstants.instance.workout,
             ),
           ],
