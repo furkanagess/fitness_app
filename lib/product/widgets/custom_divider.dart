@@ -1,18 +1,16 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-class CustomDivider extends StatelessWidget {
-  CustomDivider({
-    required this.text,
-    required this.dividerThickness,
-    required this.color,
+final class CustomDivider extends StatelessWidget {
+  const CustomDivider({
+    this.text,
+    this.dividerThickness,
+    this.color,
     super.key,
   });
-  String text;
-  Color color;
-  double dividerThickness;
+  final String? text;
+  final Color? color;
+  final double? dividerThickness;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class CustomDivider extends StatelessWidget {
           ),
         ),
         Text(
-          text,
+          text!,
           style: context.textTheme.bodyMedium,
         ),
         Expanded(

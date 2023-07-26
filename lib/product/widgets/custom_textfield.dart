@@ -1,25 +1,23 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 
-class CustomTextfield extends StatelessWidget {
-  CustomTextfield({
-    required this.hintText,
-    required this.defaultColor,
-    required this.hintColor,
+final class CustomTextfield extends StatelessWidget {
+  const CustomTextfield({
+    this.hintText,
+    this.defaultColor,
+    this.hintColor,
     this.suffixIcon,
     this.iconTap,
     this.onSubmit,
     super.key,
     this.controller,
   });
-  TextEditingController? controller;
-  Color defaultColor;
-  Color hintColor;
-  Widget? suffixIcon;
-  VoidCallback? iconTap;
-  VoidCallback? onSubmit;
-  String hintText;
+  final TextEditingController? controller;
+  final Color? defaultColor;
+  final Color? hintColor;
+  final Widget? suffixIcon;
+  final VoidCallback? iconTap;
+  final VoidCallback? onSubmit;
+  final String? hintText;
 
   @override
   Widget build(BuildContext context) {

@@ -1,32 +1,30 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-class ClickableTextRow extends StatelessWidget {
-  ClickableTextRow({
-    required this.text,
-    required this.onTap,
-    required this.clickableText,
-    required this.textClr,
+final class ClickableTextRow extends StatelessWidget {
+  const ClickableTextRow({
+    this.text,
+    this.onTap,
+    this.clickableText,
+    this.textClr,
     super.key,
   });
-  String text;
-  String clickableText;
-  Color textClr;
-  VoidCallback onTap;
+  final String? text;
+  final String? clickableText;
+  final Color? textClr;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(text),
+        Text(text!),
         SizedBox(width: context.dynamicHeight(0.01)),
         InkWell(
           onTap: onTap,
           child: Text(
-            clickableText,
+            clickableText!,
             style: context.textTheme.bodyMedium?.copyWith(
               color: textClr,
               fontWeight: FontWeight.bold,
