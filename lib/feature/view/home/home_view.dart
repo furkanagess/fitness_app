@@ -1,7 +1,6 @@
-// ignore_for_file: non_constant_identifier_names, parameter_assignments, inference_failure_on_instance_creation
-
-import 'package:fitness_app/feature/view/playlist/playlist_view.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
+import 'package:fitness_app/product/constants/jfif_constants.dart';
+import 'package:fitness_app/product/constants/navigation_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:fitness_app/product/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +30,8 @@ class _HomeViewState extends State<HomeView> {
           child: Column(
             children: [
               SizedBox(height: context.dynamicHeight(0.03)),
-              SearchBar(context),
-              ChipListview(context, tabs, current),
+              searchBar(context),
+              chipListView(context, tabs, current),
               const WorkoutsGridView(),
             ],
           ),
@@ -41,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  SizedBox ChipListview(BuildContext context, List<String> tabs, int current) {
+  SizedBox chipListView(BuildContext context, List<String> tabs, int current) {
     return SizedBox(
       height: context.dynamicHeight(0.1),
       child: ListView.builder(
@@ -70,7 +69,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  CustomTextfield SearchBar(BuildContext context) {
+  CustomTextfield searchBar(BuildContext context) {
     return CustomTextfield(
       hintText: AppStrings.searchForWorkout,
       suffixIcon: const Icon(Icons.search),
@@ -124,12 +123,7 @@ class WorkoutsGridView extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const PlaylistView(),
-                  ),
-                );
+                Navigator.pushNamed(context, NavigationConstants.playlist);
               },
               child: Card(
                 elevation: 0,
@@ -137,8 +131,8 @@ class WorkoutsGridView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Image.network(
-                  'https://picsum.photos/200/300',
+                child: Image.asset(
+                  JFIFConstants.instance.workout3,
                   fit: BoxFit.fill,
                   height: context.dynamicHeight(0.25),
                   width: double.maxFinite,
