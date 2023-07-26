@@ -15,19 +15,21 @@ class AppTheme {
         size: 30,
         color: _colorScheme.primary,
       );
-  BottomNavigationBarThemeData get _bottomNavigationBarTheme => BottomNavigationBarThemeData(
-        backgroundColor: _colorScheme.onSecondary,
-        selectedItemColor: _colorScheme.primary,
-        unselectedIconTheme: IconThemeData(
-          color: _colorScheme.surface,
-        ),
-        selectedIconTheme: IconThemeData(
-          color: _colorScheme.primary,
-          size: 30,
-        ),
-        elevation: 0,
-        type: BottomNavigationBarType.fixed,
-      );
+  BottomNavigationBarThemeData get _bottomNavigationBarTheme {
+    return BottomNavigationBarThemeData(
+      backgroundColor: _colorScheme.onSecondary,
+      selectedItemColor: _colorScheme.primary,
+      unselectedIconTheme: IconThemeData(
+        color: _colorScheme.surface,
+      ),
+      selectedIconTheme: IconThemeData(
+        color: _colorScheme.primary,
+        size: 30,
+      ),
+      elevation: 0,
+      type: BottomNavigationBarType.fixed,
+    );
+  }
 
   AppBarTheme get _appBarTheme => AppBarTheme(
         centerTitle: true,
