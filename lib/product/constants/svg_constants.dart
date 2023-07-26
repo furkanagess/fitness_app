@@ -4,8 +4,8 @@ class SVGConstants {
 
   static SVGConstants get instance => _instace ??= SVGConstants._init();
 
-  String toSVG(String name) => "assets/svg/$name.svg";
+  String toSVG(String name) => 'assets/svg/$name.svg';
 
-  String get training => toSVG("training");
-  String get workout => toSVG("workout");
+  String get training => toSVG('training');
+  String get workout => toSVG('workout');
 }
