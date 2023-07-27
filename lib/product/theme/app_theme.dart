@@ -8,19 +8,32 @@ class AppTheme {
       colorScheme: _colorScheme,
       bottomNavigationBarTheme: _bottomNavigationBarTheme,
       iconTheme: _iconThemeData,
+      elevatedButtonTheme: _elevatedButtonTheme,
     );
   }
+
+  ElevatedButtonThemeData get _elevatedButtonTheme => ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          backgroundColor: _colorScheme.primary,
+          shape: const StadiumBorder(),
+        ),
+      );
 
   IconThemeData get _iconThemeData => IconThemeData(
         size: 30,
         color: _colorScheme.primary,
       );
+
   BottomNavigationBarThemeData get _bottomNavigationBarTheme {
     return BottomNavigationBarThemeData(
-      backgroundColor: _colorScheme.onSecondary,
+      backgroundColor: _colorScheme.onSurface,
       selectedItemColor: _colorScheme.primary,
       unselectedIconTheme: IconThemeData(
         color: _colorScheme.surface,
+      ),
+      unselectedLabelStyle: const TextStyle(
+        fontWeight: FontWeight.bold,
       ),
       selectedIconTheme: IconThemeData(
         color: _colorScheme.primary,
@@ -44,6 +57,7 @@ class AppTheme {
           color: _colorScheme.primary,
         ),
       );
+
   ColorScheme get _colorScheme => const ColorScheme(
         brightness: Brightness.light,
         primary: Color(0xFFF12824), // used
@@ -53,8 +67,8 @@ class AppTheme {
         error: Colors.red,
         onError: Colors.red,
         background: Colors.white,
-        onBackground: Color(0xFFE9E9E9),
+        onBackground: Colors.blue, // used
         surface: Colors.black, // used
-        onSurface: Colors.white,
+        onSurface: Color(0xFFEEEBEB), // used
       );
 }
