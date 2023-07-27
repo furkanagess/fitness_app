@@ -71,7 +71,7 @@ class AchievementsTrackPageView extends StatelessWidget {
           child: Padding(
             padding: context.paddingLowHorizontal,
             child: Card(
-              color: context.theme.colorScheme.onBackground,
+              color: context.theme.colorScheme.onSurface,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),

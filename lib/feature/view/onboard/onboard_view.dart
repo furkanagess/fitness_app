@@ -2,6 +2,7 @@ import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/navigation_constants.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
+import 'package:fitness_app/product/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,61 +18,71 @@ class OnboardView extends StatelessWidget {
           children: [
             Expanded(
               flex: 6,
-              child: SizedBox(
-                width: context.dynamicWidth(0.7),
-                child: SvgPicture.asset(
-                  SVGConstants.instance.training,
-                ),
-              ),
+              child: headerImage(context),
             ),
             Expanded(
               flex: 2,
-              child: Column(
-                children: [
-                  Text(
-                    AppStrings.fitDev,
-                    style: context.textTheme.displaySmall?.copyWith(
-                      color: context.theme.colorScheme.surface,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: context.dynamicHeight(0.02),
-                  ),
-                  Text(
-                    AppStrings.ultimateFitness,
-                    style: context.textTheme.titleMedium,
-                  ),
-                ],
-              ),
+              child: textArea(context),
             ),
             Expanded(
-              child: Padding(
-                padding: context.paddingLow,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: context.theme.colorScheme.primary,
-                    shape: const StadiumBorder(),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, NavigationConstants.login);
-                  },
-                  child: Center(
-                    child: Text(
-                      AppStrings.start,
-                      style: context.textTheme.titleMedium?.copyWith(
-                        color: context.theme.colorScheme.secondary,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              child: navigateLoginButton(context),
             ),
             SizedBox(
               height: context.dynamicHeight(0.05),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  SizedBox headerImage(BuildContext context) {
+    return SizedBox(
+      width: context.dynamicWidth(0.7),
+      child: SvgPicture.asset(
+        SVGConstants.instance.training,
+      ),
+    );
+  }
+
+  Column textArea(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          AppStrings.fitDev,
+          style: context.textTheme.displaySmall?.copyWith(
+            color: context.theme.colorScheme.surface,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(
+          height: context.dynamicHeight(0.02),
+        ),
+        Text(
+          AppStrings.ultimateFitness,
+          style: context.textTheme.titleMedium,
+        ),
+      ],
+    );
+  }
+
+  Padding navigateLoginButton(BuildContext context) {
+    return Padding(
+      padding: context.paddingLow,
+      child: ElevatedButton(
+        onPressed: () {
+          AppRoutes().pushNamedNavigateToPage(
+            context,
+            NavigationConstants.login,
+          );
+        },
+        child: Center(
+          child: Text(
+            AppStrings.start,
+            style: context.textTheme.titleMedium?.copyWith(
+              color: context.theme.colorScheme.secondary,
+            ),
+          ),
         ),
       ),
     );

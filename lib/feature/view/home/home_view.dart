@@ -1,7 +1,9 @@
+import 'package:fitness_app/feature/viewModel/home_view_model.dart';
 import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/jfif_constants.dart';
 import 'package:fitness_app/product/constants/navigation_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
+import 'package:fitness_app/product/routes/app_routes.dart';
 import 'package:fitness_app/product/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -15,13 +17,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    const current = 0;
-    final tabs = <String>[
-      AppStrings.all,
-      AppStrings.strength,
-      AppStrings.cardio,
-      AppStrings.flexibility,
-    ];
+    final viewModel = HomeViewModel();
     return Scaffold(
       appBar: _buildAppbar(context),
       body: Padding(
@@ -31,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
             children: [
               SizedBox(height: context.dynamicHeight(0.03)),
               searchBar(context),
-              chipListView(context, tabs, current),
+              chipListView(context, viewModel.tabs, viewModel.current),
               const WorkoutsGridView(),
             ],
           ),
@@ -81,7 +77,6 @@ class _HomeViewState extends State<HomeView> {
   AppBar _buildAppbar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: context.theme.colorScheme.secondary,
       title: Text(
         AppStrings.discover,
         style: context.textTheme.titleLarge?.copyWith(
@@ -123,7 +118,10 @@ class WorkoutsGridView extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, NavigationConstants.playlist);
+                AppRoutes().pushNamedNavigateToPage(
+                  context,
+                  NavigationConstants.playlist,
+                );
               },
               child: Card(
                 elevation: 0,

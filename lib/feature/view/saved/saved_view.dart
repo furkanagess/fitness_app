@@ -1,6 +1,8 @@
 import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/jfif_constants.dart';
+import 'package:fitness_app/product/constants/navigation_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
+import 'package:fitness_app/product/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class SavedView extends StatelessWidget {
@@ -29,7 +31,6 @@ class SavedView extends StatelessWidget {
   AppBar _buildAppbar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: context.theme.colorScheme.secondary,
       title: Text(
         AppStrings.recom,
         style: context.textTheme.titleLarge?.copyWith(
@@ -93,17 +94,25 @@ class SavedWorkouts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Card(
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Image.asset(
-            JFIFConstants.instance.workout2,
-            width: context.dynamicWidth(0.35),
-            fit: BoxFit.fill,
-            height: context.dynamicHeight(0.13),
+        InkWell(
+          onTap: () {
+            AppRoutes().pushNamedNavigateToPage(
+              context,
+              NavigationConstants.playlist,
+            );
+          },
+          child: Card(
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            child: Image.asset(
+              JFIFConstants.instance.workout2,
+              width: context.dynamicWidth(0.35),
+              fit: BoxFit.fill,
+              height: context.dynamicHeight(0.13),
+            ),
           ),
         ),
         Positioned(
@@ -137,17 +146,25 @@ class WorkoutPlan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Card(
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Image.asset(
-            JFIFConstants.instance.workout,
-            fit: BoxFit.fill,
-            height: context.dynamicHeight(0.25),
-            width: double.maxFinite,
+        InkWell(
+          onTap: () {
+            AppRoutes().pushNamedNavigateToPage(
+              context,
+              NavigationConstants.playlist,
+            );
+          },
+          child: Card(
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            child: Image.asset(
+              JFIFConstants.instance.workout,
+              fit: BoxFit.fill,
+              height: context.dynamicHeight(0.25),
+              width: double.maxFinite,
+            ),
           ),
         ),
         Padding(

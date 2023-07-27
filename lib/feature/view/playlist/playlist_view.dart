@@ -36,8 +36,6 @@ class PlaylistView extends StatelessWidget {
       title: const Text(
         AppStrings.header,
       ),
-      backgroundColor: context.theme.colorScheme.secondary,
-      elevation: 0,
     );
   }
 }
@@ -122,13 +120,13 @@ class HeaderAndSlider extends StatelessWidget {
               Text(
                 AppStrings.timeCount,
                 style: context.textTheme.bodySmall?.copyWith(
-                  color: Colors.red,
+                  color: context.theme.colorScheme.error,
                 ),
               ),
               Text(
                 AppStrings.timeCount2,
                 style: context.textTheme.bodySmall?.copyWith(
-                  color: Colors.red,
+                  color: context.theme.colorScheme.error,
                 ),
               ),
             ],
