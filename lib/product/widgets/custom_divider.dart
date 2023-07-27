@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 final class CustomDivider extends StatelessWidget {
   const CustomDivider({
     this.text,
-    this.dividerThickness,
+    this.thickness,
     this.color,
     super.key,
   });
   final String? text;
   final Color? color;
-  final double? dividerThickness;
+  final double? thickness;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ final class CustomDivider extends StatelessWidget {
         Expanded(
           child: Divider(
             color: color,
-            thickness: dividerThickness,
+            thickness: thickness,
           ),
         ),
         Text(
@@ -29,7 +29,7 @@ final class CustomDivider extends StatelessWidget {
         Expanded(
           child: Divider(
             color: color,
-            thickness: dividerThickness,
+            thickness: thickness,
           ),
         ),
       ],

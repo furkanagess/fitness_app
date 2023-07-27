@@ -1,8 +1,8 @@
 import 'package:fitness_app/product/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-final class CustomButton extends StatelessWidget {
-  const CustomButton({
+final class LoginButton extends StatelessWidget {
+  const LoginButton({
     super.key,
     this.title,
     this.onPressed,
