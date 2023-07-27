@@ -2,9 +2,10 @@ import 'package:fitness_app/product/constants/app_strings.dart';
 import 'package:fitness_app/product/constants/navigation_constants.dart';
 import 'package:fitness_app/product/constants/svg_constants.dart';
 import 'package:fitness_app/product/extensions/context_extension.dart';
-import 'package:fitness_app/product/widgets/custom_button.dart';
+import 'package:fitness_app/product/routes/app_routes.dart';
+import 'package:fitness_app/product/widgets/login_button.dart';
 import 'package:fitness_app/product/widgets/custom_divider.dart';
-import 'package:fitness_app/product/widgets/custom_text_row.dart';
+import 'package:fitness_app/product/widgets/clickable_text_row.dart';
 import 'package:fitness_app/product/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,9 +21,7 @@ class LoginView extends StatelessWidget {
         padding: context.paddingNormalHorizontal,
         child: Column(
           children: [
-            SizedBox(
-              height: context.dynamicHeight(0.05),
-            ),
+            SizedBox(height: context.dynamicHeight(0.05)),
             const Expanded(
               flex: 3,
               child: HeaderImage(),
@@ -58,10 +57,9 @@ class SocialMediaAndSignUp extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: const Icon(
-                size: 30,
+              icon: Icon(
                 Icons.facebook,
-                color: Colors.blue,
+                color: context.theme.colorScheme.onBackground,
               ),
             ),
             SizedBox(
@@ -69,10 +67,9 @@ class SocialMediaAndSignUp extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {},
-              icon: const Icon(
-                size: 30,
+              icon: Icon(
                 Icons.facebook,
-                color: Colors.blue,
+                color: context.theme.colorScheme.onBackground,
               ),
             ),
           ],
@@ -97,15 +94,18 @@ class ButtonArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomButton(
+        LoginButton(
           title: AppStrings.login,
           onPressed: () {
-            Navigator.pushNamed(context, NavigationConstants.main);
+            AppRoutes().pushNamedNavigateToPage(
+              context,
+              NavigationConstants.main,
+            );
           },
         ),
         CustomDivider(
           text: AppStrings.or,
-          dividerThickness: 0.5,
+          thickness: 0.5,
           color: context.theme.colorScheme.surface,
         ),
       ],
@@ -175,18 +175,8 @@ class HeaderImage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                Text(
-                  AppStrings.fitDevApp,
-                  style: context.textTheme.titleLarge?.copyWith(
-                    color: context.theme.colorScheme.surface,
-                  ),
-                ),
-              ],
-            ),
             SvgPicture.asset(
-              height: context.dynamicHeight(0.25),
+              height: context.dynamicHeight(0.3),
               SVGConstants.instance.workout,
             ),
           ],
